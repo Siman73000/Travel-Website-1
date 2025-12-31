@@ -14,9 +14,12 @@ export function usePhotos(slug: string) {
   const [loading, setLoading] = React.useState<boolean>(!!supabase);
 
   const refresh = React.useCallback(async () => {
-    if (!slug) return;
-
-    // Fallback: local static photos (public/photos)
+    if (!slug) {
+      setItems([]);
+      setLoading(false);
+      return;
+    }
+    // If Supabase isn't configured, fall back to local photos (public/photos).
     if (!supabase) {
       setItems(photosForSlug(slug));
       setLoading(false);
@@ -24,6 +27,7 @@ export function usePhotos(slug: string) {
     }
 
     setLoading(true);
+
 
     // Supabase Storage: list everything under photos/<slug> (non-recursive)
     const { data, error } = await supabase.storage.from("photos").list(slug, {
