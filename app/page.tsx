@@ -26,7 +26,7 @@ export default function HomePage() {
           <div className="glass rounded-[28px] p-7 md:p-10 soft-shadow border-aurora ring-aurora">
             <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-2xl">
-                <p className="text-sm tracking-wide text-zinc-200/80">Simon's Travel Journal</p>
+                <p className="text-sm tracking-wide text-zinc-200/80">Simon&apos;s Travel Journal</p>
 
                 <h1 className="mt-3 text-4xl font-semibold leading-tight md:text-6xl">
                   My adventures,
