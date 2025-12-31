@@ -26,17 +26,17 @@ export default function HomePage() {
           <div className="glass rounded-[28px] p-7 md:p-10 soft-shadow border-aurora ring-aurora">
             <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-2xl">
-                <p className="text-sm tracking-wide text-zinc-200/80">Travel journal</p>
+                <p className="text-sm tracking-wide text-zinc-200/80">Simon's Travel Journal</p>
 
                 <h1 className="mt-3 text-4xl font-semibold leading-tight md:text-6xl">
-                  Adventures,
+                  My adventures,
                   <span className="block text-aurora animate-gradientShift" style={{ backgroundSize: "200% 200%" }}>
-                    vividly archived.
+                    archived.
                   </span>
                 </h1>
 
                 <p className="mt-4 max-w-xl text-zinc-100/85">
-                  Explore featured places, open a location to see photos, and keep a living record of your travels.
+                  Explore the places I've seen around the world, open a location to see photos and descriptions.
                 </p>
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
