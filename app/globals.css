@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --mx: 50vw;
+  --my: 30vh;
+}
+
+html, body { height: 100%; }
+html { scroll-behavior: smooth; }
+
+body {
+  @apply bg-zinc-950 text-zinc-50 antialiased;
+  font-feature-settings: "ss01" on, "ss02" on, "cv11" on;
+}
+
+::selection { background: rgba(56, 189, 248, 0.35); } /* sky */
+
+.glass {
+  background: rgba(255,255,255,0.055);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(18px);
+}
+
+.soft-shadow {
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.045),
+    0 16px 44px rgba(0,0,0,0.42);
+}
+
+@layer utilities {
+  .text-aurora {
+    @apply bg-gradient-to-r from-fuchsia-300 via-sky-300 to-emerald-300 bg-clip-text text-transparent;
+    background-size: 200% 200%;
+  }
+  .text-neon {
+    @apply bg-gradient-to-r from-fuchsia-300 via-violet-300 to-sky-300 bg-clip-text text-transparent;
+    background-size: 200% 200%;
+  }
+
+  .border-aurora {
+    border: 1px solid transparent;
+    background:
+      linear-gradient(rgba(255,255,255,0.05), rgba(255,255,255,0.05)) padding-box,
+      linear-gradient(135deg, rgba(236,72,153,0.95), rgba(99,102,241,0.9), rgba(56,189,248,0.9), rgba(16,185,129,0.9)) border-box;
+  }
+
+  .ring-aurora {
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.06),
+      0 0 0 6px rgba(236,72,153,0.06),
+      0 0 0 12px rgba(56,189,248,0.05),
+      0 18px 60px rgba(0,0,0,0.55);
+  }
+}
+
+/* Cursor spotlight (disabled for reduced motion users) */
+.cursor-glow {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -5;
+  opacity: 0.9;
+  background:
+    radial-gradient(420px circle at var(--mx) var(--my),
+      rgba(236,72,153,0.22),
+      rgba(56,189,248,0.16) 35%,
+      rgba(16,185,129,0.10) 55%,
+      transparent 70%);
+  mix-blend-mode: screen;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-glow { display: none; }
+}
+
+/* Mobile quality-of-life */
+* { -webkit-tap-highlight-color: transparent; }
+body {
+  padding-bottom: env(safe-area-inset-bottom);
+}
