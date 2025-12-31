@@ -27,10 +27,11 @@ export function usePhotos(slug: string) {
     }
 
     setLoading(true);
+    const sb = supabase;
 
 
     // Supabase Storage: list everything under photos/<slug> (non-recursive)
-    const { data, error } = await supabase.storage.from("photos").list(slug, {
+    const { data, error } = await sb.storage.from("photos").list(slug, {
       limit: 200,
       sortBy: { column: "name", order: "asc" },
     });
@@ -48,7 +49,7 @@ export function usePhotos(slug: string) {
 
     const urls = files
       .map((path) => {
-        const { data } = supabase.storage.from("photos").getPublicUrl(path);
+        const { data } = sb.storage.from("photos").getPublicUrl(path);
         return data.publicUrl;
       })
       .filter(Boolean);
