@@ -42,12 +42,12 @@ export default function LocationsPage() {
   }, [items, selected]);
 
   useEffect(() => {
-    // If no selection, auto-select the first card (nice UX for non-technical viewers)
-    if (!selected && filtered.length) {
-      router.replace(`/locations?place=${filtered[0].slug}`);
+    // If the selected location isn't in the filtered set, clear selection back to /locations
+    if (selected && !filtered.some((l) => l.slug === selected)) {
+      router.replace("/locations");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selected, filtered.length]);
+  }, [selected, filtered, router]);
+
 
   return (
     <main className="min-h-[calc(100svh-72px)]">
