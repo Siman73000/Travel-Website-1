@@ -36,7 +36,7 @@ export default function HomePage() {
                 </h1>
 
                 <p className="mt-4 max-w-xl text-zinc-100/85">
-                  Explore the places I've seen around the world, open a location to see photos and descriptions.
+                  Explore the places I&apos;ve seen around the world, open a location to see photos and descriptions.
                 </p>
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
