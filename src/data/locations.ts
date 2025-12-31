@@ -1,4 +1,5 @@
 import type { LocationEntry } from "@/src/lib/types";
+export type { LocationEntry } from "@/src/lib/types";
 
 /**
  * Fallback (no Supabase configured):
